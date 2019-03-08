@@ -1,0 +1,73 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/bin/yarn
+
+PATH: 
+  /opt/local/bin:/opt/local/sbin:/Applications/xampp/xamppfiles/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
+Yarn version: 
+  1.5.1
+
+Node version: 
+  8.12.0
+
+Platform: 
+  darwin x64
+
+npm manifest: 
+  {
+    "name": "sample-react-app",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "start": "webpack-dev-server --mode development  --open --hot",
+      "build": "webpack "
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/sachindra149/sample-react-app.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/sachindra149/sample-react-app/issues"
+    },
+    "homepage": "https://github.com/sachindra149/sample-react-app#readme",
+    "devDependencies": {
+      "css-loader": "^2.0.0",
+      "extract-text-webpack-plugin": "^4.0.0-beta.0",
+      "html-webpack-plugin": "^3.2.0",
+      "node-sass": "^4.11.0",
+      "react": "^16.6.3",
+      "react-dom": "^16.6.3",
+      "sass-loader": "^7.1.0",
+      "style-loader": "^0.23.1",
+      "webpack": "^4.27.1",
+      "webpack-cli": "^3.1.2",
+      "webpack-dev-server": "^3.1.10"
+    },
+    "dependencies": {
+      "babel-core": "^6.26.3",
+      "babel-loader": "^7.1.5",
+      "babel-preset-env": "^1.7.0",
+      "babel-preset-react": "^6.24.1"
+    },
+    "description": ""
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: Couldn't find package "@xtuc/long@4.2.2" required by "@webassemblyjs/wast-parser@1.8.5" on the "npm" registry.
+      at new MessageError (/usr/local/lib/node_modules/yarn/lib/cli.js:186:110)
+      at PackageRequest.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:36274:17)
+      at Generator.throw (<anonymous>)
+      at step (/usr/local/lib/node_modules/yarn/lib/cli.js:98:30)
+      at /usr/local/lib/node_modules/yarn/lib/cli.js:111:13
+      at <anonymous>
+      at process._tickCallback (internal/process/next_tick.js:189:7)
