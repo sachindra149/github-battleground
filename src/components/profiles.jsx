@@ -28,6 +28,7 @@ class ProfileDetails extends Component {
 
 	compareGithubProfiles(e){
 		console.log(e.currentTarget.getAttribute('id'));
+		console.log(e.currentTarget.querySelector('span').style.display = 'block');
 		this.setState({
 			showComparisonDataStrip: true
 		});
