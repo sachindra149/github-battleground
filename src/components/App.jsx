@@ -10,8 +10,23 @@ class App extends Component {
 		super(props);
 		this.state = {
 			homeUser: 'sachindra149',
-			category: 'javascript'
+			displayName: 'Sachindra',
+			homeLocation: 'New Delhi, India',
+			bio: 'UI Developer',
+			repoUrl: 'https://github.com/sachindra149',
+			twitterHandle: 'https://twitter.com/sachindra149',
+			category: 'javascript',
+			profilesData: ''
 		}
+	}
+	componentDidMount() {
+		fetch('https://api.github.com/search/repositories?q='+ this.state.category +'&sort=stars&order=desc')
+			.then((res) => res.json())
+			.then((data) => {
+				this.setState({
+					profilesData: data
+				})
+			})
 	}
 	render() {
 		return(
@@ -19,10 +34,11 @@ class App extends Component {
 				<Header />
 				<main role="main" className="mainContent">
 					<Sidebar
-						parentUser={this.state.homeUser}
+						data={this.state}
 					/>
 					<ProfileDetails
 						category={this.state.category}
+						profilesData={this.state.profilesData}
 					/>
 				</main>
 			</React.Fragment>
