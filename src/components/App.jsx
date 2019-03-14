@@ -13,7 +13,7 @@ class App extends Component {
 			displayName: 'Sachindra',
 			homeLocation: 'New Delhi, India',
 			bio: 'UI Developer',
-			repoUrl: 'https://github.com/sachindra149',
+			repoUrl: 'https://github.com/sachindra149/github-battleground',
 			twitterHandle: 'https://twitter.com/sachindra149',
 			category: 'javascript',
 			profilesData: ''

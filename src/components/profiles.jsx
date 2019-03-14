@@ -34,6 +34,7 @@ class ProfileDetails extends Component {
 				this.state.compareGithubData.unshift(this.props.profilesData.items.filter((item) => item.id == lastUpdatedId));
 			}
 			e.currentTarget.querySelector('span').style.display = 'block';
+			e.currentTarget.classList.add('active');
 			this.setState({
 				showComparisonDataStrip: true
 			});
@@ -47,7 +48,11 @@ class ProfileDetails extends Component {
 	}
 
 	cancelComparison() {
-		//document.getElementsByClassName('selected').removeAttribute('style');
+		let spanSelected = document.getElementsByClassName('selected');
+		for(var i = 0; i < document.getElementsByClassName('selected').length; i++) {
+			//document.getElementsByTagName('span').removeAttribute('style');
+			spanSelected[i].removeAttribute("style");
+		}
 		this.setState({
 			showComparisonDataStrip: false,
 			compareGithubData: [],
@@ -65,7 +70,7 @@ class ProfileDetails extends Component {
 								this.props.profilesData.items.slice(0, this.state.numberItemsShown).map((profileItems) => 
 									<li key={ profileItems.id } id={ profileItems.id } title={ profileItems.description } onClick={ this.selectProfileToCompare }>
 										<div>
-											<img src={ profileItems.owner.avatar_url } />
+											<img src={ profileItems.owner.avatar_url } alt={ profileItems.name } title={ profileItems.name } />
 										</div>
 										<h1><a href={ profileItems.html_url } target="_blank">{ profileItems.name }</a></h1>
 										<p>{ profileItems.description.substring(0, 100) + ' ...'}</p>
@@ -92,7 +97,9 @@ class ProfileDetails extends Component {
 					{
 						this.state.showComparisonDataStrip ? (
 							<div className="comparisonStrip">
-								<a href="#" onClick={ this.compareProfiles }>Compare Profiles</a>
+							{
+								this.state.compareGithubData && this.state.compareGithubData.length > 2 ? <a href="#" onClick={ this.compareProfiles }>Compare Profiles</a> : <a href="#">Please select 3 profiles to compare</a>
+							}
 								<a href="#" onClick={ this.cancelComparison }>I do not want to compare</a>
 							</div>
 						) : ('')
@@ -105,7 +112,7 @@ class ProfileDetails extends Component {
 							this.state.compareGithubData.map((data) => 
 								<li key={ data[0].id } title={ data[0].description }>
 									<div>
-										<img src={ data[0].owner.avatar_url } />
+										<img src={ data[0].owner.avatar_url } title={ data[0].name } alt={ data[0].name } />
 									</div>
 									<h1><a href={ data[0].html_url } target="_blank">{ data[0].name }</a></h1>
 									<p>{ data[0].description}</p>
